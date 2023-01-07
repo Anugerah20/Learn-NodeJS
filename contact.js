@@ -18,3 +18,12 @@ const dPath = './data';
 // Jika belum ada maka akan dibuatkan file json baru
 const datPath = './data/contacts.json';
 !fs.existsSync(datPath) ? fs.writeFileSync(datPath,'[]','utf-8') : '';
+
+// Pertanyaan
+const writeQuestion = (quest) => {
+     return new Promise((resolve, rejects) => {
+          rl.question(quest, (name) => {
+               resolve(name);
+          });
+     });
+};
