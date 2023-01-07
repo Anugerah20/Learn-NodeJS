@@ -1,4 +1,4 @@
-const myContacts = require('./contact'); 
+const datContact = require('./contact'); 
 
 // Menyimpan Data
 const qu = async () => {
