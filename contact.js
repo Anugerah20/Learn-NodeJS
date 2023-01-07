@@ -9,3 +9,7 @@ const rl = readline.createInterface({
      output: process.stdout,
 });
 
+// Cek folder data
+// Jika belum ada maka akan dibuatkan folder baru
+const dPath = './data';
+!fs.existsSync(dPath) ? fs.mkdirSync(dPath) : '';
