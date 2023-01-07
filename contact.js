@@ -27,3 +27,20 @@ const writeQuestion = (quest) => {
           });
      });
 };
+
+// Simpan
+const saveContact = (name, email, phoneNumber) => {
+     const contact = { name, email, phoneNumber };
+     const myFile = fs.readFileSync('data/contacts.json','utf-8');
+     const datContact = JSON.parse(myFile);
+
+     datContact.push(contact);
+
+     fs.writeFileSync('data/contacts.json', JSON.stringify(datContact, null, 2));
+
+     console.log('Terima kasih sudah memasukkan data..');
+
+     rl.close();
+}
+
+module.exports = { writeQuestion, saveContact };
