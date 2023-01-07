@@ -13,3 +13,8 @@ const rl = readline.createInterface({
 // Jika belum ada maka akan dibuatkan folder baru
 const dPath = './data';
 !fs.existsSync(dPath) ? fs.mkdirSync(dPath) : '';
+
+// Cek file json
+// Jika belum ada maka akan dibuatkan file json baru
+const datPath = './data/contacts.json';
+!fs.existsSync(datPath) ? fs.writeFileSync(datPath,'[]','utf-8') : '';
