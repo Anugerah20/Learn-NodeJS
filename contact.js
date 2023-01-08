@@ -68,6 +68,10 @@ const saveContact = (name, email, phoneNumber) => {
   }
 
   datContact.push(contact);
+
+  fs.writeFileSync('data/contacts.json', JSON.stringify(datContact, null, 2));
+
+  console.log(chalk.green.inverse.bold('Terima kasih karena sudah memasukkan data anda 😊'));
 }
 
 module.exports = { writeQuestion, saveContact };
