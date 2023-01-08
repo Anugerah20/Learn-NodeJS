@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Anugerah20/Learn-NodeJS#readme",
   "dependencies": {
-    "chalk": "^4.1.0"
+    "chalk": "^4.1.0",
+    "validator": "^13.5.2",
+    "yargs": "^16.2.0"
   }
 }
