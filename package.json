@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Anugerah20/Learn-NodeJS/issues"
   },
-  "homepage": "https://github.com/Anugerah20/Learn-NodeJS#readme"
+  "homepage": "https://github.com/Anugerah20/Learn-NodeJS#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
 }
