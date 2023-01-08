@@ -66,7 +66,8 @@ const saveContact = (name, email, phoneNumber) => {
           return false;
      }
   }
-  
+
+  datContact.push(contact);
 }
 
 module.exports = { writeQuestion, saveContact };
