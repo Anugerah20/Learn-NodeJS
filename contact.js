@@ -74,4 +74,4 @@ const saveContact = (name, email, phoneNumber) => {
   console.log(chalk.green.inverse.bold('Terima kasih karena sudah memasukkan data anda 😊'));
 }
 
-module.exports = { writeQuestion, saveContact };
+module.exports = { saveContact };
