@@ -58,6 +58,15 @@ const saveContact = (name, email, phoneNumber) => {
       return false;
     }
   }
+
+  // Cek nomor hp
+  if(numberPhone) {
+     if(!validator.isMobilePhone(numberPhone, 'id-ID')) {
+          console.log(chalk.pink.inverse.bold('Nomor HP anda tidak valid!'));
+          return false;
+     }
+  }
+  
 }
 
 module.exports = { writeQuestion, saveContact };
