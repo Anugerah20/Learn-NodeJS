@@ -36,6 +36,16 @@ yargs.command({
      handler(argv) {
           datContact.saveContact(argv.name, argv.email, argv.phoneNumber);
      },
+}).demandCommand();
+
+// Menampilkan Data Nama dan No HP Kontak
+yargs.command({
+     command: 'list',
+     describe: 'Menampilkan semua Nama dan No HP contact',
+     handler() {
+          datContact.listContact();
+     },
 });
+
 
 yargs.parse();
