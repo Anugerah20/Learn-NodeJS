@@ -22,7 +22,7 @@ const saveContact = (name, email, phoneNumber) => {
   // Cek nama tidak boleh sama
   const duplicate = datContact.find((contact) => contact.name === name);
   if (duplicate) {
-    console.log(chalk.red.inverse.bold('Kontak sudah terdaftar, Gunakan nama lain!'));
+    console.log(chalk.red.inverse.bold('Nama kontak sudah Digunakan, Gunakan nama lain!'));
     return false;
   }
 
