@@ -12,6 +12,7 @@ const datContact = require('./contact');
 
 // qu();
 
+// Builder Yargs
 yargs.command({
      command: 'add',
      describe: 'Menambahkan kontak baru',
@@ -35,7 +36,6 @@ yargs.command({
      handler(argv) {
           datContact.saveContact(argv.name, argv.email, argv.phoneNumber);
      },
-     
 });
 
 yargs.parse();
