@@ -1,51 +1,57 @@
-const yargs = require('yargs');
-const datContact = require('./contact'); 
-
-// Menyimpan Data
-// const qu = async () => {
-//      const name = await datContact.writeQuestion('Masukkan nama anda : ');
-//      const email = await datContact.writeQuestion('Masukkan email anda : ');
-//      const phoneNumber = await datContact.writeQuestion('Masukkan Nomor HP anda : ');
-
-//      datContact.saveContact(name, email, phonneNumber);
-// }
-
-// qu();
+const yargs = require("yargs");
+const datContact = require("./contact");
 
 // Builder Yargs
-yargs.command({
-     command: 'add',
-     describe: 'Menambahkan kontak baru',
-     builder: {
-          name: {
-               describe: 'Nama lengkap',
-               demandOption: true,
-               type: 'string',
-          },
-          email: {
-               describe: 'Email',
-               demandOption: false,
-               type: 'string',
-          },
-          phoneNumber: {
-               describe: 'Nomor Handphone',
-               demandOption: true,
-               type: 'string',
-          },
-     },
-     handler(argv) {
-          datContact.saveContact(argv.name, argv.email, argv.phoneNumber);
-     },
-}).demandCommand();
+yargs
+  .command({
+    command: "add",
+    describe: "Menambahkan kontak baru",
+    builder: {
+      name: {
+        describe: "Nama lengkap",
+        demandOption: true,
+        type: "string",
+      },
+      email: {
+        describe: "Email",
+        demandOption: false,
+        type: "string",
+      },
+      phoneNumber: {
+        describe: "Nomor Handphone",
+        demandOption: true,
+        type: "string",
+      },
+    },
+    handler(argv) {
+      datContact.saveContact(argv.name, argv.email, argv.phoneNumber);
+    },
+  })
+  .demandCommand();
 
-// Menampilkan Data Nama dan No HP Kontak
+// Menampilkan Data Nama dan No HP Contact
 yargs.command({
-     command: 'list',
-     describe: 'Menampilkan semua Nama dan No HP contact',
-     handler() {
-          datContact.listContact();
-     },
+  command: "list",
+  describe: "Menampilkan semua Nama dan No HP contact",
+  handler() {
+    datContact.listContact();
+  },
 });
 
+// Menampilkan Detail Contact
+yargs.command({
+  command: "detail",
+  describe: "Menampilkan detail contact berdasarkan nama",
+  builder: {
+    name: {
+      describe: "Nama lengkap",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler(argv) {
+    datContact.detailContact(argv.name);
+  },
+});
 
 yargs.parse();
