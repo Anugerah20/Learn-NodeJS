@@ -13,11 +13,17 @@ const dPath = './data';
 const datPath = './data/contacts.json';
 !fs.existsSync(datPath) ? fs.writeFileSync(datPath,'[]','utf-8') : '';
 
+// Efisien
+const simpleContact = () => {
+  const myFile = fs.readFileSync('data/contacts.json', 'utf-8');
+  const datContact = JSON.parse(myFile);
+  return datContact;
+}
+
 // Simpan
 const saveContact = (name, email, phoneNumber) => {
   const contact = { name, email, phoneNumber };
-  const myFile = fs.readFileSync('data/contacts.json', 'utf-8');
-  const datContact = JSON.parse(myFile);
+  const datContact = simpleContact();
 
   // Cek nama tidak boleh sama
   const duplicate = datContact.find((contact) => contact.name === name);
@@ -49,4 +55,16 @@ const saveContact = (name, email, phoneNumber) => {
   console.log(chalk.cyan.inverse.bold('Terima kasih karena sudah memasukkan data anda 😊'));
 }
 
-module.exports = { saveContact };
+// Menampilkan isi Nama dan No HP kontak
+const listContact = () => {
+  const datContact = simpleContact();
+  console.log(
+    chalk.blue.inverse.bold('Daftar Kontak Anda : ')
+  );
+  // Melakukan Perulangan untuk menampilkan Nama dan No HP
+  datContact.forEach((contact, el) => {
+    console.log(`${el+1}. ${contact.name} - ${contact.phoneNumber}`);
+  });
+};
+
+module.exports = { saveContact, listContact };
