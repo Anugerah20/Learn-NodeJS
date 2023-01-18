@@ -46,7 +46,7 @@ const saveContact = (name, email, phoneNumber) => {
 
   fs.writeFileSync('data/contacts.json', JSON.stringify(datContact, null, 2));
 
-  console.log(chalk.green.inverse.bold('Terima kasih karena sudah memasukkan data anda 😊'));
+  console.log(chalk.cyan.inverse.bold('Terima kasih karena sudah memasukkan data anda 😊'));
 }
 
 module.exports = { saveContact };
