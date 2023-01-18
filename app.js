@@ -54,4 +54,20 @@ yargs.command({
   },
 });
 
+// Menghapus contact 
+yargs.command({
+  command: "delete",
+  describe: "Menghapus contact berdasarkan nama",
+  builder: {
+    name: {
+      describe: "Nama lengkap",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler(argv) {
+    datContact.deleteContact(argv.name);
+  },
+});
+
 yargs.parse();
