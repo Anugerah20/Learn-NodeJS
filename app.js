@@ -7,13 +7,13 @@ const datContact = require('./contact');
 //      const email = await datContact.writeQuestion('Masukkan email anda : ');
 //      const phoneNumber = await datContact.writeQuestion('Masukkan Nomor HP anda : ');
 
-//      datContact.saveContact(name, email, phoneNumber);
+//      datContact.saveContact(name, email, phonneNumber);
 // }
 
 // qu();
 
 yargs.command({
-     commad: 'add',
+     command: 'add',
      describe: 'Menambahkan kontak baru',
      builder: {
           name: {
