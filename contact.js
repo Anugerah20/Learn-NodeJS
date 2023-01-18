@@ -22,14 +22,14 @@ const saveContact = (name, email, phoneNumber) => {
   // Cek nama tidak boleh sama
   const duplicate = datContact.find((contact) => contact.name === name);
   if (duplicate) {
-    console.log(chalk.red.inverse.bold('Nama kontak sudah Digunakan, Gunakan nama lain!'));
+    console.log(chalk.magenta.inverse.bold('Nama kontak sudah Digunakan, Gunakan nama lain!'));
     return false;
   }
 
   // Cek Email apa sudah benar penulisannya
   if (email) {
     if (!validator.isEmail(email)) {
-      console.log(chalk.red.inverse.bold('Email anda tidak valid!'));
+      console.log(chalk.magenta.inverse.bold('Email anda tidak valid!'));
       return false;
     }
   }
@@ -37,7 +37,7 @@ const saveContact = (name, email, phoneNumber) => {
   // Cek nomor hp
   if(phoneNumber) {
      if(!validator.isMobilePhone(phoneNumber, 'id-ID')) {
-          console.log(chalk.red.inverse.bold('Nomor HP anda tidak valid!'));
+          console.log(chalk.magenta.inverse.bold('Nomor HP anda tidak valid!'));
           return false;
      }
   }
