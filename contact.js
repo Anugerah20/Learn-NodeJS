@@ -93,4 +93,20 @@ const detailContact = (name) => {
   }
 };
 
-module.exports = { saveContact, listContact, detailContact };
+// Menghapus Kontak berdasarkan Nama
+const deleteContact = (name) => {
+  const datContact = simpleContact();
+
+  const storeContact = datContact.filter((contact) => contact.name.toLowerCase() !== name.toLowerCase())
+
+  if(datContact.length === storeContact.length) {
+    console.log(chalk.cyan.inverse.bold(`${name} tidak ditemukan!`));
+    return false;
+  }
+
+  fs.writeFileSync("data/contacts.json", JSON.stringify(storeContact, null, 2));
+
+  console.log(chalk.green.inverse.bold(`Kontak ${name} berhasil dihapus!`));
+}
+
+module.exports = { saveContact, listContact, detailContact, deleteContact };
